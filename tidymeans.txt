@@ -1,0 +1,5 @@
+#create a second, independent tidy data set with the average of each variable for each activity and each subject.
+tidymeans<- mstd %>%
+  group_by(subject, activity)%>%
+  summarise_all(funs(mean))
+write.table(tidymeans, "tidymeans.txt", row.name=FALSE)
